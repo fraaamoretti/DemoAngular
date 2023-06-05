@@ -18,7 +18,7 @@ constructor(private libriservice : LibroService){
 }
 
 cerca() : void {
-  this.libri = [];
+  this.libri = this.libriservice.find(this.stringaDiRicerca);
 }
 
 pulisci() : void {

@@ -15,4 +15,14 @@ export class LibroService {
         return this.libri[0]
     }
 
+    add(l : Libro){
+        this.libri.push(l);
+    }
+
+    find(stringaDiRicerca : string) : Libro[]{
+        if(stringaDiRicerca=='') return this.getAll();
+
+        return this.libri.filter( l => l.titolo.includes(stringaDiRicerca) || l.autore.includes(stringaDiRicerca))
+    }
+
 }
