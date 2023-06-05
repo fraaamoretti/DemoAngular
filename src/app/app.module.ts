@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer.component';
 import { LibroComponent } from './components/libro/libro.component';
 import { LibroService } from './services/libri.service';
 import { TroncaPipe } from './pipes/tronca.pipes';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TroncaPipe } from './pipes/tronca.pipes';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [LibroService],
   bootstrap: [AppComponent]
