@@ -8,11 +8,13 @@ import { LibroService } from 'src/app/services/libri.service';
   styleUrls: ['./libro.component.css']
 })
 export class LibroComponent {
-  libriService : LibroService;
   libro : Libro; 
 
-  constructor(){
-    this.libriService = new LibroService();
-    this.libro = new Libro('La divina commedia', 'Dante Alighieri', 12);
+  constructor(private libriService:LibroService){
+    this.libro = this.libriService.getRandom();
+  }
+
+  modificaPreferito(){
+    this.libro.preferito = !this.libro.preferito;
   }
 }

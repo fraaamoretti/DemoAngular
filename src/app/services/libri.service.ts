@@ -1,15 +1,17 @@
 import { Libro } from "../models/libro";
+import { Injectable } from "@angular/core";
 
-export class LibroService{
-    private libri:Libro[] = [
-        new Libro("La divina commedi", "Dante Alighieri", 12),
-        new Libro("I promessi sposi", "Alessandro Manzoni", 14)
+@Injectable()
+export class LibroService {
+    private libri: Libro[] = [
+        new Libro("La divina commedia", "Dante Alighieri", 12, '../../../assets/divinacommedia.png'),
+        new Libro("I promessi sposi", "Alessandro Manzoni", 14, '../../../assets/promessisposi.png')
     ]
-    getAll() : Libro [] {
+    getAll(): Libro[] {
         return this.libri
     }
 
-    getRandom() : Libro {
+    getRandom(): Libro {
         return this.libri[0]
     }
 
