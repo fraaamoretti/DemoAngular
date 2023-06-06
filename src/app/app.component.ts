@@ -10,20 +10,14 @@ import { Libro } from './models/libro';
 export class AppComponent {
   title = 'Libreria Biblioteca';
 
-  libri : Libro[]; //carico tutti i libri
-  stringaDiRicerca : string = "";
+  libri: Libro[]; //carico tutti i libri
 
-constructor(private libriservice : LibroService){
-  this.libri = this.libriservice.getAll();
-}
 
-cerca() : void {
-  this.libri = this.libriservice.find(this.stringaDiRicerca);
-}
+  constructor(private libriservice: LibroService) {
+    this.libri = this.libriservice.getAll();
+  }
 
-pulisci() : void {
-  this.stringaDiRicerca = "";
-  this.cerca();
-}
-
+  cerca(valore: string) : void {
+    this.libri = this.libriservice.find(valore);
+  }
 }
