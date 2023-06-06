@@ -12,10 +12,10 @@ export class DettaglioLibroComponent {
 
   id: number = 0;
   libro?: Libro; 
-  
+
   constructor(private routeService: ActivatedRoute,  private ls: LibroService) {
-    this.id = this.routeService.snapshot.params['id'];
+    this.id = +this.routeService.snapshot.params['id'];
     this.ls = ls;
-    this.libro = this.ls.getOne(this.id);
+    if( !isNaN(this.id) ) this.libro = this.ls.getOne(this.id);
   }
 }

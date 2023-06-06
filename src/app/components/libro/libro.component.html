@@ -1,5 +1,10 @@
 <div class="border border-primary m-2 p-3 d-flex flex-column">
     <ng-container *ngIf="libro; else elseBlock">
+        <a [routerLink]="['/libro',libro.id]">
+            <img class="w-25" src={{libro.copertina}}>
+        </a>
+
+
         <h2>{{libro.titolo | tronca}}</h2>
         <h3>{{libro.autore | tronca:10}}</h3>
 
@@ -33,10 +38,11 @@
             </svg>
         </ng-template>
         -->
+        <button class="btn btn-primary" (click)="dettaglio()">Dettaglio libro</button>
         <h4 class="align-self-end">{{libro.prezzo}} €</h4>
 
 
-        <img class="w-25" src={{libro.copertina}}>
+        
     </ng-container>
     <ng-template #elseBlock>Libro non valido</ng-template>
 </div>
