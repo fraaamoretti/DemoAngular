@@ -4,7 +4,7 @@
         <h3>{{libro.autore | tronca:10}}</h3>
 
         <ng-container *ngIf="libro.preferito">
-            <div onclick="modificaPreferito()">
+            <div (click)="modificaPreferito()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-bookmark-checked" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -16,7 +16,7 @@
         </ng-container>
 
         <ng-container *ngIf="!libro.preferito">
-            <div onclick="modificaPreferito()">
+            <div (click)="modificaPreferito()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-bookmark" viewBox="0 0 16 16">
                     <path

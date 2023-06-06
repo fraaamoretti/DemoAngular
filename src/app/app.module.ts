@@ -9,11 +9,15 @@ import { LibroService } from './services/libri.service';
 import { TroncaPipe } from './pipes/tronca.pipes';
 import { FormsModule } from '@angular/forms';
 import { RicercaComponent } from './components/ricerca/ricerca.component';
+import { ElencoLibriComponent } from './components/elenco-libri/elenco-libri.component';
+import { AboutComponent } from './components/about/about.component';
+import { NotFoundComponentComponent } from './components/not-found-component/not-found-component.component';
+import { DettaglioLibroComponent } from './components/dettaglio-libro/dettaglio-libro.component';
 
 @NgModule({
   declarations: [
     AppComponent, //da aggiungere i componenti altrimenti è come se non esistessero
-    FooterComponent, LibroComponent, TroncaPipe, RicercaComponent
+    FooterComponent, LibroComponent, TroncaPipe, RicercaComponent, ElencoLibriComponent, AboutComponent, NotFoundComponentComponent, DettaglioLibroComponent
   ],
   imports: [
     BrowserModule,
