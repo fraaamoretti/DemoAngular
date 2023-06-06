@@ -16,6 +16,6 @@ export class DettaglioLibroComponent {
   constructor(private routeService: ActivatedRoute,  private ls: LibroService) {
     this.id = +this.routeService.snapshot.params['id'];
     this.ls = ls;
-    if( !isNaN(this.id) ) this.libro = this.ls.getOne(this.id);
+    if( !isNaN(this.id) ) ls.getOne(this.id).subscribe(r => this.libro = r);
   }
 }

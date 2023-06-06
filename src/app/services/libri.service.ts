@@ -10,39 +10,34 @@ export class LibroService {
         new Libro(2, "I promessi sposi", "Alessandro Manzoni", 14, '../../../assets/promessisposi.png')
     ]
 
-    constructor (private httpService:HttpClient){
-        
+    constructor(private httpService: HttpClient) {
+
 
     }
 
 
     getAll(): Observable<Libro[]> {
         return this.httpService.get<Libro[]>('https://80.211.144.168/api/libri');
-  //          .subscribe(r => console.dir(r));
-
-  //      console.log('return');
-  //      return this.libri
+        //          .subscribe(r => console.dir(r));
+        //      console.log('return');
+        //      return this.libri
     }
 
-    getRandom(): Libro {
-        return this.libri[0]
+    getRandom(): Observable<Libro> {
+        return this.httpService.get<Libro>('https://80.211.144.168/api/libri/random');
     }
 
-    getOne(param: number): Libro | undefined {
-        for (let l of this.libri){
-            if(param == l.id) return l
-        }
-        return undefined;
+    getOne(param: number): Observable<Libro | undefined>{
+        return this.httpService.get<Libro>(`https://80.211.144.168/api/libri/${param}`);
     }
 
-    add(l : Libro){
-        this.libri.push(l);
+    add(l: Libro) {
+        this.httpService.post(`https://80.211.144.168/api/libri`,l);
     }
 
-    find(stringaDiRicerca : string) : Libro[]{
-    //    if(stringaDiRicerca=='') return this.getAll();
-
-        return this.libri.filter( l => l.titolo.includes(stringaDiRicerca) || l.autore.includes(stringaDiRicerca))
+    find(stringaDiRicerca: string): Observable<Libro[]> {
+        return this.httpService.get<Libro[]>(`https://80.211.144.168/api/libri/find/${stringaDiRicerca}`);
+        //  return this.libri.filter(l => l.titolo.includes(stringaDiRicerca) || l.autore.includes(stringaDiRicerca))
     }
 
 }

@@ -18,6 +18,6 @@ export class ElencoLibriComponent {
   }
 
   cerca(valore: string) : void {
-    this.libri = this.libriservice.find(valore);
+    this.libriservice.find(valore).subscribe(r => this.libri = r);
   }
 }
