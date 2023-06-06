@@ -10,11 +10,11 @@ import { LibroService } from 'src/app/services/libri.service';
 export class ElencoLibriComponent {
   title = 'Libreria Biblioteca';
 
-  libri: Libro[]; //carico tutti i libri
+  libri: Libro[] = []; //carico tutti i libri
 
 
   constructor(private libriservice: LibroService) {
-    this.libri = this.libriservice.getAll();
+      libriservice.getAll().subscribe(r => this.libri = r);
   }
 
   cerca(valore: string) : void {

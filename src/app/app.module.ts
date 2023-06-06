@@ -13,16 +13,19 @@ import { ElencoLibriComponent } from './components/elenco-libri/elenco-libri.com
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponentComponent } from './components/not-found-component/not-found-component.component';
 import { DettaglioLibroComponent } from './components/dettaglio-libro/dettaglio-libro.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent, //da aggiungere i componenti altrimenti è come se non esistessero
-    FooterComponent, LibroComponent, TroncaPipe, RicercaComponent, ElencoLibriComponent, AboutComponent, NotFoundComponentComponent, DettaglioLibroComponent
+    FooterComponent, LibroComponent, TroncaPipe, RicercaComponent, ElencoLibriComponent, AboutComponent, NotFoundComponentComponent, DettaglioLibroComponent, HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [LibroService],
   bootstrap: [AppComponent]
